@@ -108,4 +108,14 @@ public class EyasBaseMiddle<D, Q> {
     public D getInfoById(String id) {
         return this.eyasBaseDao.getInfoById(id);
     }
+
+    /**
+     * 根据id查询数据-用于乐观锁
+     *
+     * @param d d
+     * @return D
+     */
+    public D getInfoById(D d) {
+        return this.eyasBaseDao.getInfoById(d);
+    }
 }

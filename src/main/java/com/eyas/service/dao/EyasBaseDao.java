@@ -86,4 +86,12 @@ public interface EyasBaseDao<D, Q> {
      * @return D
      */
     D getInfoById(String id);
+
+    /**
+     * 根据id查询数据-用于乐观锁
+     *
+     * @param d d
+     * @return D
+     */
+    D getInfoById(D d);
 }

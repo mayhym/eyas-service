@@ -81,6 +81,16 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
 
     @Transactional(rollbackFor = Exception.class)
     @Override
+    public Integer updateById(Dto dto){
+        D d = this.dtoToD(dto);
+        D d1 = this.eyasBaseMiddle.getInfoById(d);
+        BeanUtils.copyProperties(dto, d1);
+        return this.eyasBaseMiddle.update(d1);
+    }
+
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
     public Integer deleteById(Long id) {
         return this.eyasBaseMiddle.deleteById(id);
     }
@@ -115,6 +125,17 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
             BeanUtils.copyProperties(d, dto);
         }
         return dto;
+    }
+
+    @Override
+    public Dto getInfoById(Dto dto) {
+        D d = this.dtoToD(dto);
+        D d1 = this.eyasBaseMiddle.getInfoById(d);
+        Dto dto1 = this.dToDto(d1);
+        if (EmptyUtil.isNotEmpty(d)){
+            BeanUtils.copyProperties(d, dto);
+        }
+        return dto1;
     }
 
     @Transactional(rollbackFor = Exception.class)

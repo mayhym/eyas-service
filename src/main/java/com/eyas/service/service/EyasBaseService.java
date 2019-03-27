@@ -95,4 +95,20 @@ public interface EyasBaseService<Dto, Q> {
      * @return Dto
      */
     Dto getInfoById(String id);
+
+    /**
+     * 根据id查询数据-用于乐观锁
+     *
+     * @param dto dto
+     * @return dto
+     */
+    Dto getInfoById(Dto dto);
+
+    /**
+     * 更新数据-带乐观锁
+     *
+     * @param dto
+     * @return
+     */
+    Integer updateById(Dto dto);
 }
