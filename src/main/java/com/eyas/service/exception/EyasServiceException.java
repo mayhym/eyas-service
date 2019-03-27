@@ -1,6 +1,6 @@
 package com.eyas.service.exception;
 
-import com.eyas.base.parent.exception.EyasRuntimeException;
+import com.eyas.parent.exception.EyasRuntimeException;
 import com.eyas.service.constant.ErrCodeEnum;
 
 /**

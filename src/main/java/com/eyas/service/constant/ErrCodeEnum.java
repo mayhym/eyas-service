@@ -1,8 +1,8 @@
 package com.eyas.service.constant;
 
-import com.eyas.base.parent.enumeration.ErrorCodeSourceEnum;
-import com.eyas.base.parent.enumeration.ErrorCodeTypeEnum;
-import com.eyas.base.parent.util.base.ErrorCodeUtil;
+import com.eyas.parent.enumeration.ErrorCodeSourceEnum;
+import com.eyas.parent.enumeration.ErrorCodeTypeEnum;
+import com.eyas.parent.util.base.ErrorCodeUtil;
 
 /**
  * @author Created by yixuan on 2019/1/3.

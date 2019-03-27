@@ -1,6 +1,6 @@
 package com.eyas.service.service.impl;
 
-import com.eyas.base.parent.util.EmptyUtil;
+import com.eyas.parent.util.EmptyUtil;
 import com.eyas.service.constant.ErrCodeEnum;
 import com.eyas.service.exception.EyasServiceException;
 import com.eyas.service.middle.EyasBaseMiddle;
