@@ -45,7 +45,7 @@
         </dependency>
         <!--base-->
         <dependency>
-            <groupId>com.eyas.base</groupId>
+            <groupId>com.eyas</groupId>
             <artifactId>parent</artifactId>
             <version>1.0.0</version>
         </dependency>
