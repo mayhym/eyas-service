@@ -31,7 +31,7 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
             d = entityClass.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
-            throw new EyasServiceException(ErrCodeEnum.NEWINSTANCE_ERROR, "泛型创建对象有误!");
+            throw new EyasServiceException(ErrCodeEnum.NEW_INSTANCE_ERROR, "泛型创建对象有误!");
         }
         BeanUtils.copyProperties(dto, d);
         return d;
@@ -44,7 +44,7 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
             dto = entityClass.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
-            throw new EyasServiceException(ErrCodeEnum.NEWINSTANCE_ERROR, "泛型创建对象有误!");
+            throw new EyasServiceException(ErrCodeEnum.NEW_INSTANCE_ERROR, "泛型创建对象有误!");
         }
         BeanUtils.copyProperties(d, dto);
         return dto;

@@ -16,14 +16,14 @@ public enum ErrCodeEnum {
     /**
      * 泛型创建对象异常
      */
-    NEWINSTANCE_ERROR(ErrorCodeUtil.getErrorCode(SystemConstant.DOMAIN, ErrorCodeTypeEnum.PARAMETER.getCode(), ErrorCodeSourceEnum.INTERNAL.getCode(), "100002"), "泛型创建对象有误")
+    NEW_INSTANCE_ERROR(ErrorCodeUtil.getErrorCode(SystemConstant.DOMAIN, ErrorCodeTypeEnum.PARAMETER.getCode(), ErrorCodeSourceEnum.INTERNAL.getCode(), "100002"), "泛型创建对象有误")
 
     ;
 
     private String errCode;
     private String errMsg;
 
-    private ErrCodeEnum(String errCode, String errMsg) {
+    ErrCodeEnum(String errCode, String errMsg) {
         this.errCode = errCode;
         this.errMsg = errMsg;
     }
