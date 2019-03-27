@@ -87,4 +87,12 @@ public interface EyasBaseService<Dto, Q> {
      * @return dtoList
      */
     List<Dto> queryByDifferentConditions(Q q);
+
+    /**
+     * 根据id查询数据
+     *
+     * @param id id
+     * @return Dto
+     */
+    Dto getInfoById(String id);
 }

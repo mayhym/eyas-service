@@ -26,7 +26,7 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
 
     private D dtoToD(Dto dto){
         Class<D> entityClass = (Class<D>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        D d = null;
+        D d;
         try {
             d = entityClass.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
@@ -39,7 +39,7 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
 
     private Dto dToDto(D d){
         Class<Dto> entityClass = (Class<Dto>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        Dto dto = null;
+        Dto dto;
         try {
             dto = entityClass.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
@@ -54,7 +54,7 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
     public List<Dto> queryByDifferentConditions(Q q){
         List<D> dList = this.eyasBaseMiddle.queryByDifferentConditions(q);
         List<Dto> dtoList = new ArrayList<>();
-        dList.stream().forEach(d->{
+        dList.forEach(d->{
             Dto dto = this.dToDto(d);
             // dto转换
             if (EmptyUtil.isNotEmpty(dto)) {
@@ -94,7 +94,7 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
     @Override
     public List<Dto> query(Q q){
         List<D> dList = this.eyasBaseMiddle.query(q);
-        List<Dto> dtoList = new ArrayList<Dto>();
+        List<Dto> dtoList = new ArrayList<>();
         for (D d:dList) {
             Dto dto = this.dToDto(d);
             dtoList.add(dto);
@@ -107,6 +107,7 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
         return this.eyasBaseMiddle.queryCount(q);
     }
 
+    @Override
     public Dto getInfoById(String id){
         D d = this.eyasBaseMiddle.getInfoById(id);
         Dto dto = this.dToDto(d);
