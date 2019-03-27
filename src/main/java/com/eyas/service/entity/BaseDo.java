@@ -10,7 +10,7 @@ import java.util.List;
  * @author Created by yixuan on 2019/1/23.
  */
 @Data
-public class BaseDO implements Serializable {
+public class BaseDo implements Serializable {
 
     private String id;
     private Date createTime;

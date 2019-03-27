@@ -1,4 +1,4 @@
-package com.eyas.service.DTO;
+package com.eyas.service.dto;
 
 import lombok.Data;
 
@@ -10,7 +10,7 @@ import java.util.List;
  * @author Created by yixuan on 2019/1/23.
  */
 @Data
-public class BaseDTO implements Serializable {
+public class BaseDto implements Serializable {
     private String id;
     private Date createTime;
     private Date updateTime;
@@ -20,5 +20,9 @@ public class BaseDTO implements Serializable {
     private String remark;
 
     /*业务字段*/
+
+    /**
+     * 批量id
+     */
     private List<String> ids;
 }

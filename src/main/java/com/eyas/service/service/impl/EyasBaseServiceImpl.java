@@ -2,7 +2,7 @@ package com.eyas.service.service.impl;
 
 import com.eyas.base.parent.util.EmptyUtil;
 import com.eyas.service.constant.ErrCodeEnum;
-import com.eyas.service.exception.EyasCommonException;
+import com.eyas.service.exception.EyasServiceException;
 import com.eyas.service.middle.EyasBaseMiddle;
 import com.eyas.service.service.EyasBaseService;
 import org.springframework.beans.BeanUtils;
@@ -31,7 +31,7 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
             d = entityClass.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
-            throw new EyasCommonException(ErrCodeEnum.NEWINSTANCE_ERROR, "泛型创建对象有误!");
+            throw new EyasServiceException(ErrCodeEnum.NEWINSTANCE_ERROR, "泛型创建对象有误!");
         }
         BeanUtils.copyProperties(dto, d);
         return d;
@@ -44,7 +44,7 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
             dto = entityClass.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
-            throw new EyasCommonException(ErrCodeEnum.NEWINSTANCE_ERROR, "泛型创建对象有误!");
+            throw new EyasServiceException(ErrCodeEnum.NEWINSTANCE_ERROR, "泛型创建对象有误!");
         }
         BeanUtils.copyProperties(d, dto);
         return dto;
