@@ -19,6 +19,10 @@ public class EyasBaseMiddle<D, Q> {
         return this.eyasBaseDao.insert(d);
     }
 
+    public Integer batchInsert(List<D> dList) {
+        return this.eyasBaseDao.batchInsert(dList);
+    }
+
     /**
      * 修改
      *

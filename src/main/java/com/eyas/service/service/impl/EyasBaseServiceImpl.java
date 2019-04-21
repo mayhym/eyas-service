@@ -1,6 +1,7 @@
 package com.eyas.service.service.impl;
 
 import com.eyas.parent.util.EmptyUtil;
+import com.eyas.parent.util.ListUtil;
 import com.eyas.service.constant.ErrCodeEnum;
 import com.eyas.service.exception.EyasServiceException;
 import com.eyas.service.middle.EyasBaseMiddle;
@@ -70,6 +71,20 @@ public class EyasBaseServiceImpl<Dto,D,Q> implements EyasBaseService<Dto,Q> {
     public Integer insert(Dto dto){
         D d = this.dtoToD(dto);
         return this.eyasBaseMiddle.insert(d);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public Integer batchInsert(List<Dto> dtoList){
+        ListUtil.splitList(dtoList, 10).stream().forEach(dtoList1 -> {
+            List<D> dList = new ArrayList<>();
+            dtoList1.stream().forEach(dto -> {
+                D d = this.dtoToD(dto);
+                dList.add(d);
+            });
+            this.eyasBaseMiddle.batchInsert(dList);
+        });
+        return 1;
     }
 
     @Transactional(rollbackFor = Exception.class)

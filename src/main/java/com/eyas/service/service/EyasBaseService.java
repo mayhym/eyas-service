@@ -16,6 +16,14 @@ public interface EyasBaseService<Dto, Q> {
     Integer insert(Dto dto);
 
     /**
+     * 批量插入
+     *
+     * @param dtoList
+     * @return
+     */
+    Integer batchInsert(List<Dto> dtoList);
+
+    /**
      * 修改
      *
      * @param dto 对象do
